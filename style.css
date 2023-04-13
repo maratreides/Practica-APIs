@@ -70,7 +70,7 @@ input[name=file] {
 	border: none;
 	padding: 10px;
 	border-radius: 5px;
-	font-size: 16px;
+	font-size: 32px;
     background: rgb(195, 171, 241);
     color: rgb(36, 41, 51);
 }
