@@ -6,6 +6,7 @@ const handleFileSelect = (evt) => {
   const file = evt.target.files[0];
 
   if (!file.type.match('video.*')) {
+    alert('Por favor, seleccione un archivo de video');
     return;
   }
 
