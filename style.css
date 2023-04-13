@@ -49,18 +49,28 @@ input[name=file] {
 }
 
 .controls {
-    margin-top: 24px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: #fff;
+	font-size: 18px;
+	font-family: Arial, sans-serif;
+
 }
 
 .buttons {
     cursor: pointer;
     margin-right: 24px;
-    padding: 11.2px 24px;
-    border: none;
+	border: none;
+	padding: 10px;
+	border-radius: 5px;
+	font-size: 16px;
     background: rgb(195, 171, 241);
     color: rgb(36, 41, 51);
 }
