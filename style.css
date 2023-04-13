@@ -3,11 +3,10 @@
     margin: 0;
     padding: 0;
 }
-
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css");
 
 body {
-	background-color: rgb(36, 41, 51);
+    background-color: rgb(36, 41, 51);
     font-family: 'Open Sans', sans-serif;;
     color: rgb(172, 186, 225);
 }
@@ -17,10 +16,11 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
+    margin: auto;
     text-align: center;
     padding: 16px;
     margin-top: 16px;
+    color: rgb(65, 59, 105);
 }
 
 .select-title {
@@ -30,7 +30,7 @@ body {
 }
 
 input[type=file] {
-    background-color: rgb(255, 247, 255);
+    background-color: rgb(172, 186, 225);
     border-radius: 3px;
 
 }
@@ -44,7 +44,7 @@ input[name=file] {
 
 .thumb {
     height: 50%;
-    margin-top: 2em;
+    margin-top: 32px;
     visibility: hidden;
 }
 
@@ -61,13 +61,15 @@ input[name=file] {
 	color: #fff;
 	font-size: 18px;
 	font-family: Arial, sans-serif;
+
 }
 
 .buttons {
     cursor: pointer;
     margin-right: 24px;
-    padding: 11.5px 24px;
-    border: none;
+	border: none;
+	padding: 10px;
+	border-radius: 5px;
 	font-size: 16px;
     background: rgb(195, 171, 241);
     color: rgb(36, 41, 51);
@@ -85,11 +87,9 @@ input[name=file] {
     transition: all .3s ease-in;
 }
 
-.bi {
-    font-size: 32px;
-}
 
 .loading-message {
+    font-family: 'Open Sans', sans-serif;;
     font-size: 32px;
     font-weight: 700;
     color: rgb(105, 134, 193);
