@@ -1,77 +1,82 @@
-if (window.File && window.FileReader && window.FileList && window.Blob) {
-    alert("¡Genial! Todas las API's están soportadas :)");
-  } else {
-    alert('La API no está soportada por este navegador... :(');
+const isAPIsupported = () => {
+  return window.File && window.FileReader && window.FileList && window.Blob;
+}
+
+const handleFileSelect = (evt) => {
+  const file = evt.target.files[0];
+
+  if (!file.type.match('video.*')) {
+    return;
   }
-function handleFileSelect(evt) {
-        let file = evt.target.files[0];
 
-        if (!file.type.match('video.*')) {
-            return;
-        }
+  const reader = new FileReader();
 
-        let reader = new FileReader();
+  reader.onload = ((theFile) => {
+    return (e) => {
+      const videoDiv = document.querySelector('.video-container');
 
-        reader.onload = (function (theFile) {
-            return function (e) {
-                let videoDiv = document.getElementsByClassName('video-container');
+      if (videoDiv) {
+        videoDiv.parentNode.removeChild(videoDiv);
+      }
 
-                if(videoDiv[0] != null) {
-                    videoDiv[0].parentNode.removeChild(videoDiv[0]);
-                }
-                    
-                let div = document.createElement('div');
-                div.id = "video-div";
-                div.className = "video-container";
-                div.innerHTML = '<video controls id="video" class="thumb" src="' + e.target.result + '" title="'+ escape(theFile.name) + '"/>';
+      const div = document.createElement('div');
+      div.id = 'video-div';
+      div.className = 'video-container';
+      div.innerHTML = `<video controls id="video" class="thumb" src="${e.target.result}" title="${escape(theFile.name)}"/>`;
 
-                document.getElementById('video-output').insertBefore(div, null);
+      document.getElementById('video-output').insertBefore(div, null);
 
-                let loadingMessage = document.createElement('p');
+      const loadingMessage = document.createElement('p');
 
-                loadingMessage.id = "loading";
-                loadingMessage.className = "loading-message";
-                loadingMessage.innerHTML = 'El video está cargando';
+      loadingMessage.id = 'loading';
+      loadingMessage.className = 'loading-message';
+      loadingMessage.innerHTML = 'El video está cargando';
 
-                document.getElementById('video-output').insertBefore(loadingMessage, null);
+      document.getElementById('video-output').insertBefore(loadingMessage, null);
 
-                let playButton = document.getElementById('play');
-                let pauseButton = document.getElementById('pause');
-                let volumeUp = document.getElementById('up');
-                let volumeDown = document.getElementById('down');
-                
-                playButton.addEventListener('click', () => {
-                    document.getElementById('video').play();
-                });
-                
-                pauseButton.addEventListener('click', () => {
-                    document.getElementById('video').pause();
-                })
+      const playButton = document.getElementById('play');
+      const pauseButton = document.getElementById('pause');
+      const volumeUp = document.getElementById('up');
+      const volumeDown = document.getElementById('down');
 
-                volumeUp.addEventListener('click', () => {
-                    document.getElementById('video').volume += 0.1;
-                })
+      playButton.addEventListener('click', () => {
+        document.getElementById('video').play();
+      });
 
-                volumeDown.addEventListener('click', () => {
-                    document.getElementById('video').volume -= 0.1;
-                })
+      pauseButton.addEventListener('click', () => {
+        document.getElementById('video').pause();
+      });
 
-                document.getElementById('video').addEventListener('canplay', () => {
-                    let loadingMessage = document.getElementById('loading');
+      volumeUp.addEventListener('click', () => {
+        document.getElementById('video').volume += 0.1;
+      });
 
-                    document.getElementById('video-output').removeChild(loadingMessage);
+      volumeDown.addEventListener('click', () => {
+        document.getElementById('video').volume -= 0.1;
+      });
 
-                    document.getElementById('video').style.visibility = "visible";
+      document.getElementById('video').addEventListener('canplay', () => {
+        const loadingMessage = document.getElementById('loading');
 
-                    playButton.style.visibility = "visible";
-                    pauseButton.style.visibility = "visible";
-                    volumeUp.style.visibility = "visible";
-                    volumeDown.style.visibility = "visible"; 
-                });
-            }
-        }) (file);
+        document.getElementById('video-output').removeChild(loadingMessage);
 
-        reader.readAsDataURL(file);
-    } 
+        document.getElementById('video').style.visibility = 'visible';
 
-    document.getElementById('file').addEventListener('change', handleFileSelect, false);
+        playButton.style.visibility = 'visible';
+        pauseButton.style.visibility = 'visible';
+        volumeUp.style.visibility = 'visible';
+        volumeDown.style.visibility = 'visible';
+      });
+    }
+  })(file);
+
+  reader.readAsDataURL(file);
+};
+
+if (isAPIsupported()) {
+  alert('¡Genial! Todas las API\'s están soportadas :)');
+} else {
+  alert('La API no está soportada por este navegador... :(');
+}
+
+document.getElementById('file').addEventListener('change', handleFileSelect, false);
