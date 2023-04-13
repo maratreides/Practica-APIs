@@ -1,0 +1,92 @@
+* {
+    box-sizing: border-box;
+    margin: auto;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(36, 41, 51);
+    font-family: 'Open Sans', sans-serif;;
+    color: rgb(172, 186, 225);
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    text-align: center;
+    padding: 16px;
+    margin-top: 16px;
+    color: rgb(65, 59, 105);
+}
+
+.select-title {
+    line-height: 48px;
+    font-family: 'Open Sans', sans-serif;;
+    font-weight: 700;
+    color: rgb(172, 186, 225);
+}
+
+input[type=file] {
+    background-color: rgb(172, 186, 225);
+    border-radius: 3px;
+
+}
+
+input[name=file] {
+    border: 1px solid rgb(172, 172, 172);
+    text-align: center;
+    padding: 10px;
+    color: black;
+}
+
+.thumb {
+    height: 50%;
+    margin-top: 32px;
+    visibility: hidden;
+}
+
+.controls {
+    margin-top: 24px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons {
+    cursor: pointer;
+    margin-right: 24px;
+    padding: 11.2px 24px;
+    border: none;
+    background: rgb(195, 171, 241);
+    color: rgb(36, 41, 51);
+}
+
+.buttons:hover {
+    background: rgb(22, 46, 94);
+    color: white;
+    transition: all .3s ease-in;
+}
+
+.button:focus {
+    background: rgb(105, 134, 193);
+    color: rgb(178, 172, 198);
+    transition: all .3s ease-in;
+}
+
+.bi {
+    font-family: 'Open Sans', sans-serif;;
+    font-size: 32px;
+}
+
+.loading-message {
+    font-family: 'Open Sans', sans-serif;;
+    font-size: 32px;
+    font-weight: 700;
+    color: rgb(105, 134, 193);
+    border: 2px solid rgb(55, 74, 112);
+    padding: 32px;
+}

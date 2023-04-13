@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+    <title>SD - Práctica 4: API's de HTML5</title>
+
+</head>
+<body>
+    <div id="main-div" class="content-wrapper">
+        <h1 class="select-title">Pulse el botón para seleccionar su vídeo:</h1>
+        <label for="file"></label>
+        <input type="file" class="select-video" id="file" name="file" accept="video/*">
+        <output id="video-output"></output>
+        <div id="controls-div" class="controls">
+            <button class="buttons" id="play" style="visibility: hidden;" title="Reproducir" aria-label="Reproducir">
+                <i class="bi bi-play-fill" role="button" aria-label="Reproducir"></i>
+            </button>
+            <button class="buttons" id="pause" style="visibility: hidden;" title="Pausa" aria-label="Pausa">
+                <i class="bi bi-pause-fill" role="button" aria-label="Pausar"></i>
+            </button>
+            <button class="buttons" id="up" style="visibility: hidden;" title="Subir volumen" aria-label="Subir volumen">
+                <i class="bi bi-volume-up-fill" role="button" aria-label="Subir volumen"></i>
+            </button>
+            <button class="buttons" id="down" style="visibility: hidden;" title="Bajar volumen" aria-label="Bajar volumen">
+                <i class="bi bi-volume-down-fill" role="button" aria-label="Bajar volumen"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
